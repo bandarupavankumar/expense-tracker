@@ -1,0 +1,247 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap');
+
+:root {
+  --bg-color: #0f172a;
+  --card-bg: rgba(30, 41, 59, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --accent-green: #2ecc71;
+  --accent-red: #e74c3c;
+  --accent-glow: rgba(56, 189, 248, 0.3);
+  --gradient-1: #3b82f6;
+  --gradient-2: #8b5cf6;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Outfit', sans-serif;
+  background-color: var(--bg-color);
+  background-image:
+    radial-gradient(circle at 10% 20%, rgba(59, 130, 246, 0.15) 0%, transparent 40%),
+    radial-gradient(circle at 90% 80%, rgba(139, 92, 246, 0.15) 0%, transparent 40%);
+  color: var(--text-primary);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+.container {
+  margin: 30px auto;
+  width: 400px;
+  background: var(--card-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  padding: 30px;
+  border-radius: 24px;
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Header */
+h2 {
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+  text-align: center;
+  background: linear-gradient(to right, var(--gradient-1), var(--gradient-2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-size: 1.8rem;
+}
+
+h4 {
+  font-weight: 400;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+  text-shadow: 0 0 20px var(--accent-glow);
+}
+
+/* Income/Expense Section */
+.inc-exp-container {
+  background: rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0;
+  border-radius: 16px;
+  border: 1px solid var(--glass-border);
+}
+
+.inc-exp-container>div {
+  flex: 1;
+  text-align: center;
+}
+
+.inc-exp-container>div:first-of-type {
+  border-right: 1px solid var(--glass-border);
+}
+
+.money {
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin: 5px 0;
+}
+
+.money.plus {
+  color: var(--accent-green);
+  text-shadow: 0 0 10px rgba(46, 204, 113, 0.3);
+}
+
+.money.minus {
+  color: var(--accent-red);
+  text-shadow: 0 0 10px rgba(231, 76, 60, 0.3);
+}
+
+/* Labels */
+label {
+  display: inline-block;
+  margin: 10px 0;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+/* Inputs */
+input[type='text'],
+input[type='number'] {
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  display: block;
+  font-size: 16px;
+  padding: 12px 15px;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.2);
+  color: var(--text-primary);
+  font-family: inherit;
+  transition: all 0.3s ease;
+}
+
+input:focus {
+  outline: none;
+  border-color: var(--gradient-1);
+  box-shadow: 0 0 15px var(--accent-glow);
+  background: rgba(0, 0, 0, 0.4);
+}
+
+/* Button */
+.btn {
+  cursor: pointer;
+  background: linear-gradient(135deg, var(--gradient-1), var(--gradient-2));
+  box-shadow: 0 10px 20px -10px var(--gradient-2);
+  color: #fff;
+  border: 0;
+  display: block;
+  font-size: 16px;
+  margin: 25px 0 10px;
+  padding: 12px;
+  width: 100%;
+  border-radius: 12px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 30px -10px var(--gradient-2);
+  filter: brightness(1.1);
+}
+
+/* Transaction List */
+.list {
+  list-style-type: none;
+  padding: 0;
+  margin-bottom: 20px;
+  max-height: 250px;
+  overflow-y: auto;
+  padding-right: 5px;
+  /* Custom Scrollbar */
+  scrollbar-width: thin;
+  scrollbar-color: var(--glass-border) transparent;
+}
+
+.list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.list::-webkit-scrollbar-thumb {
+  background-color: var(--glass-border);
+  border-radius: 4px;
+}
+
+.list li {
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--text-primary);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  padding: 12px 15px;
+  margin: 10px 0;
+  border-radius: 12px;
+  border: 1px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.list li:hover {
+  background: rgba(255, 255, 255, 0.06);
+  transform: translateX(5px);
+}
+
+.list li.plus {
+  border-right: 5px solid var(--accent-green);
+}
+
+.list li.minus {
+  border-right: 5px solid var(--accent-red);
+}
+
+.delete-btn {
+  cursor: pointer;
+  background-color: var(--accent-red);
+  color: #fff;
+  border: 0;
+  font-size: 16px;
+  line-height: 16px;
+  padding: 4px 8px;
+  border-radius: 6px;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translate(-100%, -50%);
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  height: 24px;
+  width: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.list li:hover .delete-btn {
+  opacity: 1;
+  transform: translate(-10px, -50%);
+}
